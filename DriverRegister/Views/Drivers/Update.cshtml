@@ -1,0 +1,47 @@
+﻿@model DriverRegister.Models.DriverModel
+
+<h4>Zajerestruj kierowcę MPK</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdKierowcy" />
+            <div class="form-group">
+                <label asp-for="Imie" class="control-label"></label>
+                <input asp-for="Imie" class="form-control" />
+                <span asp-validation-for="Imie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nazwisko" class="control-label"></label>
+                <input asp-for="Nazwisko" class="form-control" />
+                <span asp-validation-for="Nazwisko" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pesel" class="control-label"></label>
+                <input asp-for="Pesel" class="form-control" />
+                <span asp-validation-for="Pesel" class="text-danger"></span>
+            </div>
+            <div class="form-group w-25">
+                <label asp-for="NumerLini" class="control-label"></label>
+                <input asp-for="NumerLini" class="form-control" />
+                <span asp-validation-for="NumerLini" class="text-danger"></span>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="submit" value="Edytuj" class="btn btn-primary btn-block" />
+                </div>
+                <div class="form-group col-md-6">
+                    <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Powrót do listy</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

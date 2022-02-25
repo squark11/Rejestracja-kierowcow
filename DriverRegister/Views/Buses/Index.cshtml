@@ -1,0 +1,41 @@
+﻿@model System.Collections.Generic.IEnumerable<DriverRegister.Entities.BusEntity>
+
+<div class="col-md-12">
+    <h1>Buses</h1>
+    <table class="table table-hover" style="width: 100%;">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumerLini)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoURL)
+            </th>
+            <th>
+                Opcje
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumerLini)
+                </td>
+                <td>
+                    <img  src="@item.PhotoURL" alt="Photo" style="max-width: 400px"/>
+                </td>
+                
+                <td>
+                    <a asp-action="Update" asp-route-id="@item.IdBus" class="text-success">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdBus" class="text-danger ml-1" onclick="return confirm('Jesteś pewień że chesz usunąć tego kierowcę?')">Usuń</a>
+
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+</div>
